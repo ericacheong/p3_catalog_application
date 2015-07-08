@@ -1,0 +1,15 @@
+.main-container{
+    margin-top: 60px;
+}
+.btn{
+    margin-top: 20px;
+}
+#signinButton{
+    margin-top: 20px;
+}
+.cat{
+    font-style: italic; 
+    color: gray;
+    margin-left: 8px;
+    font-size: 85%;
+}

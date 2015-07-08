@@ -1,0 +1,68 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Catalog Application{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='appstyle.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Catalog Application</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+            {% if 'username' not in session %}
+                <li><a href="{{url_for('showLogin')}}">Login</a></li>
+            {% else %}
+                <li><a href="{{url_for('disconnect')}}">Logout</a></li>
+            {% endif %}
+            
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container main-container theme-showcase" role="main">    
+        <div class="row">
+            <div class = 'col-md-4'>
+                {% block leftpane %}
+                    <h1>Categories</h1>
+                    <ul>
+                    {% for c in categories %}
+                        <li><a href='{{url_for('showCategoryItems', category=c.name)}}'>{{ c.name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                    {% if 'username' in session %}
+                        <a class="btn btn-primary" href="{{ url_for('addCategory') }}">Add Category</a>
+                    {% endif %}
+                {% endblock %}
+            </div><!-- end of col-md-4-->
+
+            <div class='col-md-8'>
+                <div class = 'flash'>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li> <strong> {{ message }} </strong> </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+               
+                <div class = 'main'>
+                    {% block main %}
+
+                    {% endblock %}
+                </div>
+            </div><!-- end of col-md-8 -->
+
+        </div> <!-- end of row -->
+    </div><!-- end of container -->
+{% endblock %}

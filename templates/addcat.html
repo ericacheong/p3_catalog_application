@@ -1,0 +1,14 @@
+{% extends "layout-full.html" %}
+
+
+{% block main %}
+    <h1>Add Category</h1>
+    <form action="{{ url_for('addCategory') }}" method = 'post'>
+    <dl>
+        <dt>Category:</dt>
+        <dd><input type='text' size='30' name='category'></dd>
+    </dl>
+    <input class="btn btn-primary" type='submit' value='Create'>
+    <a class="btn btn-danger" href="{{url_for('latestItems')}}">Cancel</a>
+
+{% endblock %}

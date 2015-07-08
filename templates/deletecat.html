@@ -1,0 +1,11 @@
+{% extends "layout-full.html" %}
+
+{% block main %}
+    <h1>Are you sure to delete {{category}}?</h1>
+    <form action="{{ url_for('deleteCategory', category=category) }}" method = 'post'>
+
+    <input class="btn btn-danger" type='submit' value='Delete'>
+    
+    <a class="btn btn-primary" href = "{{ url_for('showCategoryItems', category=category) }}">Cancel </a>
+    </form>
+{% endblock %}

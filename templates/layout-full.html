@@ -1,0 +1,45 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Catalog Application{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='appstyle.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Catalog Application</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container main-container theme-showcase" role="main">    
+        <div class="row">
+
+            <div class='col-md-12'>
+                <div class = 'flash'>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li> <strong> {{ message }} </strong> </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+               
+                <div class = 'main'>
+                    {% block main %}
+
+                    {% endblock %}
+                </div>
+            </div><!-- end of col-md-8 -->
+
+        </div> <!-- end of row -->
+    </div><!-- end of container -->
+{% endblock %}

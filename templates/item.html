@@ -1,0 +1,17 @@
+{% extends "layout-full.html" %}
+
+
+{% block main %}
+    <h2>{{ item.name }}</h2>
+    <br />
+    <p>{{ item.description }}</p>
+    <br />
+    <small>Created by {{item.user.name}}</small>
+    <br />
+    {% if 'username' in session %}
+        <a class="btn btn-primary" href='{{url_for('editItem',category=category, item=item.name)}}'>Edit</a>
+        <a class="btn btn-primary" href='{{url_for('deleteItem',category=category, item=item.name)}}'>Delete</a>
+    {% endif %}
+    <a class="btn btn-danger" href='{{url_for('showCategoryItems', category=category)}}'>Back to {{category}}</a>
+  
+{% endblock %}

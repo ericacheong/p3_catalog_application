@@ -1,0 +1,37 @@
+<html>
+<head>
+
+</head>
+<body>
+    <div class = 'leftpane'>
+        {% block leftpane %}
+        <h1>Categories</h1>
+        <ul>
+        {% for c in categories %}
+            <li><a href='{{url_for('showCategoryItems', category=c.name)}}'>{{ c.name }}</a></li>
+        {% endfor %}
+        </ul>
+        <a href="{{ url_for('addCategory') }}">Add Category</a>
+        {% endblock %}
+    </div>
+
+    <div class = 'flash'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li> <strong> {{ message }} </strong> </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+   
+    <div class = 'main'>
+        {% block main %}
+
+        {% endblock %}
+    </div>
+
+</body>
+</html>

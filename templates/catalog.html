@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block leftpane %}
+    {{ super() }}
+{% endblock %}
+{% block main %}
+    <h2>Latest Items</h2>
+    <ul>
+    {% for i in items %}
+        <li><a href='{{url_for('showItemDescription', category=i.category.name, item=i.name)}}'>{{ i.name }}</a><span class="cat">({{i.category.name}})</span></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

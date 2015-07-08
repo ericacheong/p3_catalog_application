@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block leftpane %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block main %}
+    <h2>{{ category }} Items ({{items|length}} items)</h2>
+    <ul>
+    {% for i in items %}
+        <li><a href='{{url_for('showItemDescription', category=category, item=i.name)}}'>{{ i.name }}</a></li>
+    {% endfor %}
+    </ul>
+    {% if 'username' in session %}
+        <a class="btn btn-primary" href="{{url_for('addItem', category=category)}}">Add Item</a>
+    {% endif %}
+{% endblock %}

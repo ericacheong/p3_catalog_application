@@ -1,0 +1,24 @@
+{% extends "layout-full.html" %}
+
+{% block main %}
+    <h1>Add Item in {{category}}</h1>
+    <form class="form-horizontal" action="{{ url_for('addItem', category=category) }}" method = 'post'>   
+        <div class="form-group">
+            <label for="item-name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+                <input type='text' class="form-control"  name='name' id="item-name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="item-des" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="5" id="item-des" name='description'></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type='submit' value='Create'>
+                <a class="btn btn-danger" href="{{url_for('showCategoryItems', category=category)}}">Back to {{category}}</a>
+            </div>
+        </div> 
+{% endblock %}
