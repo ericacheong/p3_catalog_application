@@ -8,6 +8,6 @@
     <br />
     <small>Created by {{item.user.name}}</small>
     <br />
-    <a class="btn btn-danger" href='{{url_for('showCategoryItems', category=category)}}'>Back to {{category}}</a>
+    <a class="btn btn-danger" href='{{url_for('showCategoryItems', category_id=category.id)}}'>Back to {{category.name}}</a>
   
 {% endblock %}

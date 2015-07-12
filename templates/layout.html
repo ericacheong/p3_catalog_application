@@ -34,7 +34,7 @@
                     <h1>Categories</h1>
                     <ul>
                     {% for c in categories %}
-                        <li><a href='{{url_for('showCategoryItems', category=c.name)}}'>{{ c.name }}</a></li>
+                        <li><a href='{{url_for('showCategoryItems', category_id=c.id)}}'>{{ c.name }}</a></li>
                     {% endfor %}
                     </ul>
                     {% if 'username' in session %}

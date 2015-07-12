@@ -1,8 +1,8 @@
 {% extends "layout-full.html" %}
 
 {% block main %}
-    <h1>Add Item in {{category}}</h1>
-    <form class="form-horizontal" action="{{ url_for('addItem', category=category) }}" method = 'post'>   
+    <h1>Add Item in {{category.name}}</h1>
+    <form class="form-horizontal" action="{{ url_for('addItem', category_id=category.id) }}" method = 'post'>   
         <div class="form-group">
             <label for="item-name" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
@@ -18,7 +18,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <input class="btn btn-primary" type='submit' value='Create'>
-                <a class="btn btn-danger" href="{{url_for('showCategoryItems', category=category)}}">Back to {{category}}</a>
+                <a class="btn btn-danger" href="{{url_for('showCategoryItems', category_id=category.id)}}">Back to {{category.name}}</a>
             </div>
         </div> 
 {% endblock %}
