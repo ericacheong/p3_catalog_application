@@ -1,6 +1,7 @@
 # database_setup.py
 
 import sys
+import string
 
 from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
@@ -46,9 +47,9 @@ class Item(Base):
         return {
             'id' : self.id,
             'name' : self.name,
-            'create_time' : self.create_time,
+            'create_time' : self.create_time.strftime("%B %d, %Y"),
             'description' : self.description,
-            'user' : self.user            
+            'user' : str(self.user.id)            
         }
     
 
