@@ -7,6 +7,13 @@ This program is created for the Udacity Full Stack Web Developer Nanodegree.
 2. Registered users can add, edit and delete their own items.
 3. Registered users can add, edit and delete their own categories.
 4. When a category is deleted, all items in the category is moved to "Unclassified". The category "Unclassified" cannot be deleted.
+5. JSON endpoints to categories and items. Use the following path:
+'''
+All items in a category:
+http://localhost:5000/catalog/<int:category_id>/items/JSON/
+A specific item:
+http://localhost:5000/catalog/<int:category_id>/<int:item_id>/JSON/
+'''
 
 ## Prerequisite:
 1. Flask == 0.10.1
