@@ -2,6 +2,11 @@
 
 This program is created for the Udacity Full Stack Web Developer Nanodegree.
 
+The project includes a database schema to store the game matches between players. Program code is written to query this data and determine the winners of various games.
+
+## Language:
+Python
+
 ## Features:
 1. Users should login using Google+ or Facebook.
 2. Registered users can add, edit and delete their own items.
